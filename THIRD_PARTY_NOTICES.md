@@ -14,7 +14,7 @@
 |---|---|---|
 | **Cubism Core** | Live2D Proprietary Software License | `live2dcubismcore.{js,min.js,d.ts}` |
 | **Cubism Framework** | Live2D Open Software License | TypeScript 源码 |
-| **样例模型** | Free Material License | 仅开发测试，不随产品分发 |
+| **样例模型** | Free Material License | 作为内置形象使用时保留官方许可与署名 |
 
 ### 再分发权限
 
@@ -105,9 +105,7 @@ live2dcubismcore.min.js
 
 ---
 
-## 待补充
+## 发布说明
 
-- [ ] 角色模型的许可来源（自制 / 购买 / 授权）
-- [ ] 音色资源的许可
-- [ ] 字体许可
-- [ ] 图标许可（V1.7 D59.08）
+- 角色模型、音色、字体与图标来源在发布检查中逐项登记。
+- 未取得明确再分发授权的素材不得进入安装包或公开镜像。

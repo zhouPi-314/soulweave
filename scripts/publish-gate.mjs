@@ -86,7 +86,7 @@ const report = {
   blockers,
   warnings,
 };
-const outFile = path.resolve('docs', 'S12-UI-Redesign', '30-D57-发布门禁报告.json');
+const outFile = path.resolve('.tmp', 'publish-gate.json');
 try { fs.mkdirSync(path.dirname(outFile), { recursive: true }); fs.writeFileSync(outFile, JSON.stringify(report, null, 2), 'utf8'); } catch (e) { /* ignore */ }
 
 console.log('[publish-gate] ' + target);

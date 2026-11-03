@@ -1,0 +1,35 @@
+{
+  "updatedAt": "2026-11-03",
+  "items": [
+    {
+      "date": "2026-11-03",
+      "level": "notice",
+      "title": "SoulWeave 0.1.0-s1 Windows 候选版开放下载",
+      "body": "官网与 GitHub Releases 已发布 Windows 候选安装包。安装包未进行商业代码签名，下载后请核对 SHA-256。"
+    },
+    {
+      "date": "2026-11-02",
+      "level": "dev",
+      "title": "开发中：官网与文档",
+      "body": "官网静态站点（D57）正在搭建，包含功能、下载、版本、公告、文档与隐私说明。"
+    },
+    {
+      "date": "2026-11-02",
+      "level": "fix",
+      "title": "修复：配置写入目标不一致",
+      "body": "向导此前写 memory-db.json，而运行时读 db-connection.json，导致“显示就绪但记忆没连上”。现已统一。"
+    },
+    {
+      "date": "2026-11-02",
+      "level": "release",
+      "title": "0.1.0-s1 首个可用包",
+      "body": "首启向导、内置数据库、记忆链路打通、自动更新与自动回滚、安装状态机完成。安装包约 255 MB，未签名。"
+    },
+    {
+      "date": "2026-10-31",
+      "level": "notice",
+      "title": "已知问题：安装包未签名",
+      "body": "Windows SmartScreen 会拦截，选择“仍要运行”并用 SHA-256 校验即可。"
+    }
+  ]
+}

@@ -112,7 +112,7 @@ OneBot v11（NapCat）             QQ 接入
 - [官网](https://soulweave.pages.dev) · [安装与排障](https://soulweave.pages.dev/docs/index.html)
 - [下载状态](https://soulweave.pages.dev/download.html) · [版本与校验](https://soulweave.pages.dev/releases.html)
 - [关于项目](https://soulweave.pages.dev/about.html) · [隐私说明](https://soulweave.pages.dev/privacy.html)
-- [架构决策](docs/adr/) · [许可审计与 SBOM](docs/licensing/) · [发布说明](docs/RELEASE-0.1.0-s1.md)
+- [架构决策](docs/adr/) · [第三方许可与 SBOM](docs/licensing/) · [发布说明](docs/RELEASE-0.1.0-s1.md)
 - [第三方许可](NOTICE) · [依赖清单](THIRD-PARTY-LICENSES.md)
 
 ## 许可证

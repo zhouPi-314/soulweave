@@ -25,7 +25,6 @@ files:
   - NOTICE
   - THIRD-PARTY-LICENSES.md
   - SD15-USE-RESTRICTIONS.md
-  # LICENSE 待 D59.01 用户批准后加入；现在加会导致打包报“文件不存在”
   - "**/*"
   - "!src/**"
   - "!docs/**"

@@ -14,6 +14,8 @@ tests-dist/
 
 # ── 运行时数据（不入库）──
 data/
+!site/data/
+!site/data/**
 .tmp/
 .dsh-runtime/
 .runtime-userdata/
@@ -43,14 +45,15 @@ agent/
 # 打包产物
 release/
 
-# 本机设计过程稿与验收产物
-assets/hero-proposals*/
-assets/icon-proposals*/
-docs/S12-UI-Redesign/
-docs/s1/
-docs/assets/portraits/
-docs/assets/banners/*.html
-design-preview/
+# 本机验收产物
+docs/licensing/0*.md
+docs/licensing/approvals.json
+docs/licensing/assets.json
+docs/licensing/gate-report.json
+docs/licensing/LICENSE-*.md
+scripts/license-audit.mjs
+scripts/license-gate.mjs
+scripts/verify-requirements.mjs
 soulweave-s1.png
 soulweave-smoke.json
 

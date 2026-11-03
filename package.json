@@ -2,6 +2,7 @@
   "name": "soulweave",
   "version": "0.1.0-s1",
   "private": true,
+  "license": "Apache-2.0",
   "description": "SoulWeave — customizable multi-character digital life desktop experience",
   "main": "dist/main/index.js",
   "scripts": {
@@ -18,14 +19,10 @@
     "test:preload": "node scripts/check-preload.mjs",
     "build:web": "vite build -c vite.web.config.ts",
     "check:boot": "node scripts/check-boot-health.mjs",
-    "verify:req": "node scripts/verify-requirements.mjs",
     "pack": "electron-builder --win nsis --publish never",
     "pack:dir": "electron-builder --win --dir",
     "pack:full": "electron-builder --config electron-builder.full.yml --win zip --publish never",
-    "gate:site": "node scripts/publish-gate.mjs site",
-    "gate:site:abs": "node scripts/publish-gate.mjs D:/SoulWeave/01_project/soulweave/site",
-    "license:audit": "node scripts/license-audit.mjs",
-    "license:gate": "node scripts/license-gate.mjs --report"
+    "gate:site": "node scripts/publish-gate.mjs site"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
