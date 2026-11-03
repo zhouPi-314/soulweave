@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="SoulWeave">
+  <path d="M32 52a24 24 0 0 1 0-48 24 24 0 0 1 0 48z" fill="#FFA64A"/>
+  <path d="M32 48a20 20 0 0 1 0-40 20 20 0 0 1 0 40z" fill="#FFC07C"/>
+  <g stroke="#FFE7BE" stroke-width="1.6" stroke-linecap="round">
+    <path d="M32 48V26M32 48 17 31M32 48l15-17M32 48 24 26M32 48l8-22M32 48 13 41M32 48l19-7"/>
+  </g>
+  <path d="M32 4a24 24 0 0 1 24 24H8A24 24 0 0 1 32 4z" fill="none" stroke="#FFF6E9" stroke-width="2.4"/>
+  <path d="M32 52H12M32 52h20" stroke="#FFF6E9" stroke-width="2.4" stroke-linecap="round"/>
+  <ellipse cx="45" cy="9" rx="8" ry="4.4" fill="#6EBE80" transform="rotate(-18 45 9)"/>
+</svg>

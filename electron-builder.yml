@@ -1,0 +1,117 @@
+# SoulWeave 打包配置（electron-builder）
+#
+# 【必须排除的东西】
+# resources/models 是 4.07 GB 的 SD1.5 权重、resources/sdcpp 是 84.7 MB 的推理库，
+# 都属于 D56.03「按需下载」，绝不能进安装包。
+# resources/whisper 只有 8.9 MB 且语音识别首启就要用，打进包内。
+appId: com.singulift.soulweave
+productName: SoulWeave
+copyright: Copyright © 2026 Singulift 奇点跃迁
+
+directories:
+  output: release
+  buildResources: build
+
+# 用默认白名单（**/*）+ 明确排除，比只列 dist 更安全：
+# 只列 dist 会让 electron-builder 漏掉生产依赖的原生模块。
+# 自动更新（D56.19/20）：electron-updater 读取这里生成的 app-update.yml。
+# 发布时把 url 换成真实地址，或设置环境变量 SOULWEAVE_UPDATE_URL 覆盖（运行期优先）。
+publish:
+  provider: generic
+  url: https://updates.singulift.dev/soulweave
+  channel: latest
+
+files:
+  - NOTICE
+  - THIRD-PARTY-LICENSES.md
+  - SD15-USE-RESTRICTIONS.md
+  # LICENSE 待 D59.01 用户批准后加入；现在加会导致打包报“文件不存在”
+  - "**/*"
+  - "!src/**"
+  - "!docs/**"
+  - "!site/**"
+  - "!design-preview/**"
+  - "!assets/icon-proposals*/**"
+  - "!assets/test-models/**"
+  - "!assets/preview-*.png"
+  - "!assets/app-icon-source.png"
+  # 本地开发环境文件绝不能进包（可能含数据库口令）
+  - "!.env*"
+  - "!.npmrc"
+  - "!.tmp/**"
+  - "!.dsh-runtime/**"
+  - "!**/*.log"
+  - "!**/boot-trace.log"
+  - "!tests/**"
+  - "!tests-dist/**"
+  - "!scripts/**"
+  - "!tools/**"
+  - "!.agents/**"
+  - "!.claude/**"
+  - "!agent/**"
+  - "!.runtime-userdata/**"
+  - "!.taste-skill/**"
+  - "!.wrangler/**"
+  - "!resources/models/**"
+  - "!resources/sdcpp/**"
+  - "!public/**"
+  - "!dist/web/**"
+  - "!**/*.map"
+  - "!**/*.ts"
+  - "!release/**"
+  # onnxruntime-node 自带 5 个平台的原生库（linux / macOS x64+arm64 / win-arm64），
+  # 我们只出 Windows x64 包，其余平台全是死重（约 180 MB）。
+  - "!node_modules/onnxruntime-node/bin/napi-v6/linux/**"
+  - "!node_modules/onnxruntime-node/bin/napi-v6/darwin/**"
+  - "!node_modules/onnxruntime-node/bin/napi-v6/win32/arm64/**"
+
+# 安装后放在 resources/ 下、运行时用 process.resourcesPath 读的东西
+extraResources:
+  - from: resources/napcat
+    to: napcat
+    filter:
+      - "**/*"
+      - "!**/*.zip"
+      - "!**/.gitkeep"
+  # 内置 PostgreSQL 18.6 可运行最小集（bin+lib+share，145.8 MB）
+  # 用户选择 1.A：内置数据库 + 首启自动初始化，端口 55432
+  - from: resources/pg
+    to: pg
+  - from: resources/whisper
+    to: whisper
+  - from: assets
+    to: assets
+    filter:
+      - "tray*.*"
+
+asar: true
+# Chromium 自带 50 多种语言包（48.8 MB），只留中文和英文
+electronLanguages:
+  - zh-CN
+  - en-US
+
+asarUnpack:
+  - "**/*.node"
+  - "node_modules/koffi/**"
+  - "node_modules/onnxruntime-node/**"
+  - "node_modules/onnxruntime-common/**"
+
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+  icon: assets/app-icon.ico
+  # 未购买代码签名 —— 用开源 + 校验和替代，官网需写明"未签名"
+  signAndEditExecutable: true
+
+nsis:
+  include: build/installer.nsh
+  oneClick: false
+  perMachine: false
+  allowElevation: true
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: SoulWeave
+  artifactName: SoulWeave-Setup-${version}.exe
+  deleteAppDataOnUninstall: false

@@ -1,0 +1,55 @@
+# SoulWeave 完整版打包（"一个完整的 SoulWeave"）
+#
+# 【为什么不是 NSIS 安装包】
+# NSIS 安装器是 32 位程序，单个 .exe 上限约 2 GB。
+# 完整版要带 resources/models（4.07 GB SD1.5 权重），
+# 一个安装包根本装不下 —— 所以完整版用 zip（7z 压缩，无 2GB 限制）。
+#
+# 【为什么仍然排除 .runtime-userdata】
+# 那是本机真实运行数据（178.2 MB）：QQ 账号与登录态、聊天记录、记忆数据库、相册。
+# 打进发布包 = 把这些私密内容发给每个下载者，而且换台电脑也用不了（账号是绑定的）。
+appId: com.singulift.soulweave
+productName: SoulWeave
+copyright: Copyright © 2026 Singulift 奇点跃迁
+
+directories:
+  output: release-full
+  buildResources: build
+
+files:
+  - "**/*"
+  - "!.runtime-userdata/**"
+  - "!release/**"
+  - "!release-full/**"
+  - "!.git/**"
+  - "!node_modules/.cache/**"
+  - "!assets/icon-proposals*/**"
+  - "!assets/test-models/**"
+  - "!assets/preview-*.png"
+  - "!assets/app-icon-source.png"
+
+extraResources:
+  # 全部资源：数据库、语音引擎、本地出图（模型 + 推理库）
+  - from: resources/pg
+    to: pg
+  - from: resources/whisper
+    to: whisper
+  - from: resources/sdcpp
+    to: sdcpp
+  - from: resources/models
+    to: models
+  - from: assets
+    to: assets
+
+asar: true
+asarUnpack:
+  - "**/*.node"
+  - "node_modules/koffi/**"
+  - "node_modules/onnxruntime-node/**"
+  - "node_modules/onnxruntime-common/**"
+
+win:
+  target:
+    - target: zip
+      arch: [x64]
+  icon: assets/app-icon.ico

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark" data-theme-name="midnight">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'" />
+  <title>SoulWeave 首次设置</title>
+  <link rel="stylesheet" href="./setup.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="head">
+      <div class="brand"><span class="dot"></span>SoulWeave<span class="sub">始于奇点，跃迁无限。</span></div>
+      <div class="steps" id="steps"></div>
+    </header>
+
+    <main class="body">
+      <!-- 步骤 1：环境自检 -->
+      <section class="pane" data-pane="1">
+        <h1>先检查一下环境</h1>
+        <p class="lead">这一步不需要你做任何事，稍等几秒。</p>
+        <ul class="checks" id="env-checks"></ul>
+      </section>
+
+      <!-- 步骤 2：数据库（必须） -->
+      <section class="pane" data-pane="2" hidden>
+        <h1>记忆放在哪里</h1>
+        <p class="lead">聊天、日记、角色设定都存在本机数据库里。SoulWeave 自带一个独立实例，不会影响你已有的数据库。</p>
+        <div class="choices" id="db-choices"></div>
+        <div class="ext-form" id="ext-form" hidden>
+          <label>主机<input id="ext-host" value="127.0.0.1" /></label>
+          <label>端口<input id="ext-port" value="5432" /></label>
+          <label>数据库<input id="ext-db" value="soulweave" /></label>
+          <label>用户名<input id="ext-user" value="postgres" /></label>
+          <label>密码<input id="ext-pass" type="password" /></label>
+          <div class="row"><button class="btn ghost" id="ext-test">测试连接</button><span id="ext-msg" class="msg"></span></div>
+        </div>
+        <div class="progress" id="db-progress" hidden>
+          <div class="bar"><i id="db-bar"></i></div>
+          <div class="msg" id="db-msg">正在准备本地数据库…</div>
+        </div>
+        <div class="error" id="db-error" hidden></div>
+      </section>
+
+      <!-- 步骤 3：资源 -->
+      <section class="pane" data-pane="3" hidden>
+        <h1>把大文件补上</h1>
+        <p class="lead">安装包只带引擎。本地出图（4.07 GB）和语音模型（142 MB）可以现在下，也可以以后在「下载中心」下。</p>
+        <div class="hint" id="pack-source" style="margin:6px 0 10px;opacity:.75"></div>
+        <div class="packs" id="packs"></div>
+        <div class="progress" id="pack-progress" hidden>
+          <div class="bar"><i id="pack-bar"></i></div>
+          <div class="msg" id="pack-msg"></div>
+        </div>
+      </section>
+
+      <!-- 步骤 4：完成 -->
+      <section class="pane" data-pane="4" hidden>
+        <h1>可以开始了</h1>
+        <p class="lead">冰糖已经在等你。云端角色要 Key，可以稍后在设置里填。</p>
+        <div class="done-note" id="done-note"></div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <button class="btn ghost" id="back">上一步</button>
+      <button class="btn primary" id="next">继续</button>
+    </footer>
+  </div>
+  <script type="module" src="./setup.js"></script>
+</body>
+</html>

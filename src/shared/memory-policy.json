@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "decidedAt": "2026-10-29T10:20:00.000Z",
+  "decidedBy": "user",
+  "embedding": {
+    "source": "local",
+    "reason": "隐私优先：记忆文本不出本机",
+    "cloudFallback": "off",
+    "fallbackStrategy": "keyword"
+  },
+  "retention": {
+    "rawMessageDays": 180,
+    "dailySummary": "keep",
+    "importantMemory": "keep",
+    "ordinaryHalfLifeDays": 90,
+    "coldStrengthRange": [
+      0.15,
+      0.4
+    ],
+    "fadedIdleDays": 90,
+    "fadedKeepDays": 180,
+    "neverForget": [
+      "user_marked",
+      "first_time_event",
+      "unresolved_conflict",
+      "persona"
+    ],
+    "softCap": {
+      "memories": 20000,
+      "bytes": 524288000
+    },
+    "retrievalLatencyP95Ms": 200,
+    "asyncBatch": 20
+  }
+}

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>安装 · SoulWeave 文档</title>
+<meta name="description" content="Windows 安装步骤、SmartScreen 处理与 SHA-256 校验。">
+<meta name="color-scheme" content="dark light">
+<meta property="og:title" content="安装 · SoulWeave 文档">
+<meta property="og:description" content="Windows 安装步骤、SmartScreen 处理与 SHA-256 校验。">
+<meta property="og:type" content="website">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../index.html" aria-label="SoulWeave 首页">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12" fill="#5baeff"/><circle cx="16" cy="16" r="4.5" fill="#fff"/><path d="M16 3v5M16 24v5M3 16h5M24 16h5" stroke="#267ac5" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>SoulWeave<small>奇点跃迁 · SINGULIFT</small></span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="../index.html">首页</a>
+      <a href="../features.html">功能</a>
+      <a href="../download.html">下载</a>
+      <a href="../docs/index.html" aria-current="page">文档</a>
+      <a href="../releases.html">版本</a>
+      <a href="../announcements.html">公告</a>
+      <a href="../about.html">关于</a>
+      <a href="https://github.com/zhouPi-314/soulweave">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main id="main"><div class="wrap docs">
+  <aside class="side" aria-label="文档目录">
+    <span class="side-group">快速开始</span>
+    <a href="index.html">文档首页</a>
+    <a href="install.html" aria-current="page">安装</a>
+    <a href="first-run.html">首次启动</a>
+    <span class="side-group">连接与配置</span>
+    <a href="qq.html">QQ 接入</a>
+    <a href="api.html">云端模型与 Key</a>
+    <span class="side-group">安全与支持</span>
+    <a href="permissions.html">权限与审批</a>
+    <a href="troubleshooting.html">排障</a>
+    <a href="faq.html">FAQ</a>
+  </aside>
+  <article class="article">
+
+    <h1>安装</h1>
+    <h2>1. 确认系统</h2>
+    <ul><li>Windows 10 1809+ 或 Windows 11，64 位</li><li>至少 8 GB 内存、1 GB 可用磁盘（含全部模型约 6 GB）</li></ul>
+    <h2>2. 下载并校验</h2>
+    <pre><code>Get-FileHash .\SoulWeave-Setup-x.y.z.exe -Algorithm SHA256</code></pre>
+    <p>与 Release 说明里的哈希比对。不一致就重新下载。</p>
+    <h2>3. 运行安装程序</h2>
+    <p>安装器是 NSIS 单文件。若被 SmartScreen 拦截：点「更多信息」→「仍要运行」（应用未签名，属正常提示）。</p>
+    <h2>4. 选择安装位置</h2>
+    <p>默认装在当前用户目录，避免要求管理员权限。安装包已包含数据库与语音引擎，不需要另外装 PostgreSQL 或 Python。</p>
+    <div class="note"><b>不会改你已有的环境。</b>应用不使用系统 PATH 里的 Node/Python，也不写系统级环境变量。</div>
+    <h2>卸载</h2>
+    <p>控制面板卸载即可。卸载时会询问是否同时删除记忆数据，默认<b>保留</b>。</p>
+  </article>
+</div></main>
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="../index.html">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12" fill="#5baeff"/><circle cx="16" cy="16" r="4.5" fill="#fff"/><path d="M16 3v5M16 24v5M3 16h5M24 16h5" stroke="#267ac5" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>SoulWeave<small>奇点跃迁 · SINGULIFT</small></span>
+        </a>
+        <p>一个让数字生命真正鲜活起来的世界。Weave Memories. Shape Identity. Create Digital Life.</p>
+      </div>
+      <div class="footer-grid">
+        <div><b>产品</b><a href="../features.html">功能能力</a><a href="../download.html">下载</a><a href="../releases.html">版本</a></div>
+        <div><b>资源</b><a href="../docs/index.html">文档</a><a href="../releases.html">版本与校验</a><a href="../announcements.html">公告</a></div>
+        <div><b>项目</b><a href="../about.html">关于</a><a href="../privacy.html">隐私</a><a href="https://github.com/zhouPi-314/soulweave">GitHub</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>A Singulift Project · 始于奇点，跃迁无限。</span>
+      <span>Apache-2.0 · 本站无第三方统计 · 角色与模型素材遵循各自许可</span>
+    </div>
+  </div>
+</footer>
+<script src="../assets/app.js" defer></script>
+</body></html>

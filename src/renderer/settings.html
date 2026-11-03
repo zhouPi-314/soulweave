@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: file: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; media-src 'self' data: blob:" />
+  <title>SoulWeave · 设置中心</title>
+  <link rel="stylesheet" href="./settings.css" />
+</head>
+<body>
+  <!-- S3-12：设置中心 —— 与角色面板独立的第二个窗口 -->
+  <header id="sb-titlebar">
+    <div class="sb-brand">
+      <span class="sb-dot" aria-hidden="true"></span>
+      <span class="sb-name">SoulWeave · 设置中心</span>
+      <span class="sb-sub">奇点跃迁 · SINGULIFT</span>
+    </div>
+    <nav class="sb-actions">
+      <button type="button" id="sb-min" title="最小化" aria-label="最小化">&#xE921;</button>
+      <button type="button" id="sb-max" title="最大化" aria-label="最大化">&#xE922;</button>
+      <button type="button" id="sb-close" title="关闭" aria-label="关闭">&#xE8BB;</button>
+    </nav>
+  </header>
+
+  <div id="sb-layout">
+    <aside id="sb-nav" role="tablist" aria-label="功能模块"></aside>
+    <main id="sb-main">
+      <div id="sb-head">
+        <h1 id="sb-title">看板</h1>
+        <p id="sb-desc"></p>
+      </div>
+      <div id="sb-content"></div>
+    </main>
+  </div>
+
+  <script type="module" src="./settings.js"></script>
+</body>
+</html>

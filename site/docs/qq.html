@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QQ 接入 · SoulWeave 文档</title>
+<meta name="description" content="QQ 协议端配置、白名单、群聊触发与讨论额度。">
+<meta name="color-scheme" content="dark light">
+<meta property="og:title" content="QQ 接入 · SoulWeave 文档">
+<meta property="og:description" content="QQ 协议端配置、白名单、群聊触发与讨论额度。">
+<meta property="og:type" content="website">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../index.html" aria-label="SoulWeave 首页">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12" fill="#5baeff"/><circle cx="16" cy="16" r="4.5" fill="#fff"/><path d="M16 3v5M16 24v5M3 16h5M24 16h5" stroke="#267ac5" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>SoulWeave<small>奇点跃迁 · SINGULIFT</small></span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="../index.html">首页</a>
+      <a href="../features.html">功能</a>
+      <a href="../download.html">下载</a>
+      <a href="../docs/index.html" aria-current="page">文档</a>
+      <a href="../releases.html">版本</a>
+      <a href="../announcements.html">公告</a>
+      <a href="../about.html">关于</a>
+      <a href="https://github.com/zhouPi-314/soulweave">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main id="main"><div class="wrap docs">
+  <aside class="side" aria-label="文档目录">
+    <span class="side-group">快速开始</span>
+    <a href="index.html">文档首页</a>
+    <a href="install.html">安装</a>
+    <a href="first-run.html">首次启动</a>
+    <span class="side-group">连接与配置</span>
+    <a href="qq.html" aria-current="page">QQ 接入</a>
+    <a href="api.html">云端模型与 Key</a>
+    <span class="side-group">安全与支持</span>
+    <a href="permissions.html">权限与审批</a>
+    <a href="troubleshooting.html">排障</a>
+    <a href="faq.html">FAQ</a>
+  </aside>
+  <article class="article">
+
+    <h1>QQ 接入</h1>
+    <p>应用不内置 QQ 账号，需要你自备一个协议端（运行在你自己的机器上），再把角色接进去。</p>
+    <h2>准备</h2>
+    <ul><li>一个可用的 QQ 协议端，已登录你要用的账号</li><li>协议端的本地地址与访问令牌（如果它有）</li></ul>
+    <h2>接入步骤</h2>
+    <ol>
+      <li>打开「社交」面板，填入协议端地址。</li>
+      <li>点「测试连接」，成功后会显示账号与在线状态。</li>
+      <li>在「角色档案 → 绑定」里选择这个角色要接的账号。</li>
+      <li>设置白名单：只有名单里的 QQ 号能触发回应。</li>
+    </ol>
+    <h2>群聊规则</h2>
+    <ul>
+      <li><b>触发</b>：被 @、命中关键词，或你显式开启的主动参与。</li>
+      <li><b>额度</b>：每位角色的讨论额度独立计算，超额会被拒绝而不是排队。</li>
+      <li><b>并发</b>：同一任务串行提交，避免同一句话被回两次。</li>
+    </ul>
+    <div class="note"><b>默认拒绝。</b>没有授权的账号发消息不会被回应；授权可随时在「权限」里收回。</div>
+    <h2>注意</h2>
+    <p>QQ 接入依赖第三方协议端，账号风险由其承担。请遵守腾讯的服务条款，不要用于骚扰或自动化营销。</p>
+  </article>
+</div></main>
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="../index.html">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12" fill="#5baeff"/><circle cx="16" cy="16" r="4.5" fill="#fff"/><path d="M16 3v5M16 24v5M3 16h5M24 16h5" stroke="#267ac5" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>SoulWeave<small>奇点跃迁 · SINGULIFT</small></span>
+        </a>
+        <p>一个让数字生命真正鲜活起来的世界。Weave Memories. Shape Identity. Create Digital Life.</p>
+      </div>
+      <div class="footer-grid">
+        <div><b>产品</b><a href="../features.html">功能能力</a><a href="../download.html">下载</a><a href="../releases.html">版本</a></div>
+        <div><b>资源</b><a href="../docs/index.html">文档</a><a href="../releases.html">版本与校验</a><a href="../announcements.html">公告</a></div>
+        <div><b>项目</b><a href="../about.html">关于</a><a href="../privacy.html">隐私</a><a href="https://github.com/zhouPi-314/soulweave">GitHub</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>A Singulift Project · 始于奇点，跃迁无限。</span>
+      <span>Apache-2.0 · 本站无第三方统计 · 角色与模型素材遵循各自许可</span>
+    </div>
+  </div>
+</footer>
+<script src="../assets/app.js" defer></script>
+</body></html>

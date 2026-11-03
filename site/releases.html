@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>版本与更新日志 · SoulWeave</title>
+<meta name="description" content="SoulWeave 版本状态、更新日志、系统要求与 SHA-256 校验说明。">
+<meta name="theme-color" content="#f6f9fd">
+<meta property="og:title" content="版本与更新日志 · SoulWeave">
+<meta property="og:description" content="区分规划基线 V1.7、开发候选 0.1.0-s1 与里程碑 0.1.0-s0。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://soulweave.pages.dev/releases.html">
+<link rel="canonical" href="https://soulweave.pages.dev/releases.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="SoulWeave 首页">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12" fill="#5baeff"/><circle cx="16" cy="16" r="4.5" fill="#fff"/><path d="M16 3v5M16 24v5M3 16h5M24 16h5" stroke="#267ac5" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>SoulWeave<small>奇点跃迁 · SINGULIFT</small></span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="index.html">首页</a>
+      <a href="features.html">功能</a>
+      <a href="download.html">下载</a>
+      <a href="docs/index.html">文档</a>
+      <a href="releases.html" aria-current="page">版本</a>
+      <a href="announcements.html">公告</a>
+      <a href="about.html">关于</a>
+      <a href="https://github.com/zhouPi-314/soulweave">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Releases</div>
+        <h1>把版本事实分开写清楚</h1>
+        <p>规划基线、开发候选和开发里程碑不是同一个概念。版本号与日期也是两个字段，不应拼成一个字符串。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tight" id="release-status">
+    <div class="wrap">
+      <div class="version-matrix">
+        <article class="version-card">
+          <span class="status-pill">规划基线</span>
+          <strong>V1.7（规划基线）</strong>
+          <p>项目需求与阶段规划使用的内部基线，不是安装包版本，也不是公开版本号。</p>
+        </article>
+        <article class="version-card">
+          <span class="status-pill">开发候选</span>
+          <strong>0.1.0-s1</strong>
+          <p>当前 Windows 公开候选版本，发布日期为 2026-11-03。安装包通过 GitHub Releases 分发。</p>
+        </article>
+        <article class="version-card">
+          <span class="status-pill">开发里程碑</span>
+          <strong>0.1.0-s0</strong>
+          <p>核心能力建立阶段记录，用于说明开发进展，不代表可供公众安装的版本。</p>
+        </article>
+      </div>
+      <div class="note warn"><b>公开发布状态：公开候选版。</b> 安装包可在 GitHub Releases 下载，但尚未进行商业代码签名；下载后请核对 SHA-256。</div>
+    </div>
+  </section>
+
+  <section class="section white">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Timeline</div>
+        <h2>更新时间线</h2>
+        <p>只展示可由现有项目资料确认的版本与状态，不补写不存在的发布日期。</p>
+      </div>
+      <div class="release-timeline">
+        <article class="release-entry current">
+          <div class="version">0.1.0-s1<span>2026-11-03 · 公开候选</span></div>
+          <div>
+            <h3>S12：可用性收官候选</h3>
+            <ul>
+              <li>首启向导：环境检查、数据库、资源包与完成步骤。</li>
+              <li>内置 PostgreSQL 与长期记忆链路打通。</li>
+              <li>自动更新、安装状态机、失败回滚与维护流程。</li>
+              <li>多角色、Live2D、语音、QQ 社交与权限审计逐步整合。</li>
+            </ul>
+            <p class="toc-note">已知问题：候选安装包尚未进行商业代码签名，Windows SmartScreen 可能显示提示。</p>
+          </div>
+        </article>
+        <article class="release-entry">
+          <div class="version">0.1.0-s0<span>开发里程碑</span></div>
+          <div>
+            <h3>核心能力建立</h3>
+            <ul>
+              <li>多角色、Live2D 形象、语音识别与语音合成。</li>
+              <li>长期记忆、QQ 接入、权限与审计基础能力。</li>
+              <li>设置中心、角色面板与主要快捷操作。</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" id="versions">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Version Format</div>
+        <h2>版本信息冲突处理</h2>
+      </div>
+      <div class="grid g2">
+        <article class="card">
+          <h3>已确认</h3>
+          <p><code>V1.7</code> 是需求与阶段规划基线；<code>0.1.0-s1</code> 是当前应用与站点数据记录的产品候选版本；<code>0.1.0-s0</code> 是开发里程碑。</p>
+        </article>
+        <article class="card">
+          <h3>不要拼接</h3>
+          <p><code>0.1.0-s1</code> 后的日期是元数据中的独立字段。将它拼成连续版本字符串会产生错误，也会让用户误以为日期属于版本号本身。</p>
+        </article>
+      </div>
+      <div class="note">下载页原先同时写有“内部版本 V1.7”和候选版本号。界面现已改为统一的发布状态表述；真实版本号没有被修改。</div>
+    </div>
+  </section>
+
+  <section class="section" id="release-notes">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Verify</div>
+        <h2>校验信息</h2>
+        <p>安装包由 GitHub Releases 分发。下载后请同时核对文件名与 SHA-256。</p>
+      </div>
+      <div class="note"><b>SHA-256：</b><code>5A75BE78AFD01884DE71FF3A1C05152E315CC240F257ECDB6E73FA7E9536AEFE</code></div>
+      <pre><code># 安装包公开发布后，在 PowerShell 中运行
+Get-FileHash .\SoulWeave-Setup-0.1.0-s1.exe -Algorithm SHA256</code></pre>
+      <div class="note"><b>官方下载：</b>请使用 <a href="https://github.com/zhouPi-314/soulweave/releases/download/v0.1.0-s1/SoulWeave-Setup-0.1.0-s1.exe">GitHub Release 安装包</a>。不要使用本地开发构建、网盘转发文件或第三方镜像。</div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12" fill="#5baeff"/><circle cx="16" cy="16" r="4.5" fill="#fff"/><path d="M16 3v5M16 24v5M3 16h5M24 16h5" stroke="#267ac5" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>SoulWeave<small>奇点跃迁 · SINGULIFT</small></span>
+        </a>
+        <p>一个让数字生命真正鲜活起来的世界。Weave Memories. Shape Identity. Create Digital Life.</p>
+      </div>
+      <div class="footer-grid">
+        <div><b>产品</b><a href="features.html">功能能力</a><a href="download.html">下载</a><a href="releases.html">版本</a></div>
+        <div><b>资源</b><a href="docs/index.html">文档</a><a href="releases.html">版本与校验</a><a href="announcements.html">公告</a></div>
+        <div><b>项目</b><a href="about.html">关于</a><a href="privacy.html">隐私</a><a href="https://github.com/zhouPi-314/soulweave">GitHub</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>A Singulift Project · 始于奇点，跃迁无限。</span>
+      <span>Apache-2.0 · 本站无第三方统计 · 角色与模型素材遵循各自许可</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/app.js" defer></script>
+</body>
+</html>

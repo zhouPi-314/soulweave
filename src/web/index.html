@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN" data-tier="eco">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#101016" />
+  <title>SoulWeave</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <!-- 登录 / 配对 -->
+  <section id="gate" class="gate" hidden>
+    <div class="gate-card">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span class="brand-name">SoulWeave</span>
+      </div>
+      <p class="gate-sub">奇点跃迁 · SINGULIFT</p>
+      <h1 class="gate-title">和她们说句话</h1>
+      <p class="gate-hint" id="gate-hint">在电脑上打开「设置 → 手机 Web 与远程」，把 6 位配对码填在这里。</p>
+      <form id="pair-form" autocomplete="off">
+        <input id="pair-code" class="code-input" inputmode="numeric" pattern="[0-9]*"
+               maxlength="6" placeholder="······" aria-label="配对码" />
+        <button id="pair-btn" class="btn primary" type="submit">连接</button>
+      </form>
+      <p class="gate-err" id="gate-err" role="alert"></p>
+      <p class="gate-foot">只在这台设备上保存凭证。电脑端可随时撤销。</p>
+    </div>
+  </section>
+
+  <!-- 主界面 -->
+  <div id="app" class="app" hidden>
+    <header class="topbar">
+      <div class="topbar-l">
+        <span class="brand-dot"></span>
+        <span class="brand-name">SoulWeave</span>
+      </div>
+      <div class="topbar-r">
+        <button id="btn-voice" class="chip on" type="button" title="收到回复后自动朗读">朗读</button>
+        <button id="btn-status" class="chip" type="button">状态</button>
+        <button id="btn-more" class="chip" type="button">更多</button>
+      </div>
+    </header>
+
+    <nav class="chars" id="chars"></nav>
+
+    <main id="log" class="log" aria-live="polite"></main>
+
+    <form id="chat-form" class="composer" autocomplete="off">
+      <button id="mic" class="btn round mic" type="button" aria-label="按住说话">按住说话</button>
+      <textarea id="input" rows="1" placeholder="说点什么…" aria-label="消息"></textarea>
+      <button id="send" class="btn primary round" type="submit" aria-label="发送">发送</button>
+    </form>
+    <div class="safe-area"></div>
+  </div>
+
+  <!-- 状态 / 更多 抽屉 -->
+  <div id="sheet" class="sheet" hidden>
+    <div class="sheet-card">
+      <div class="sheet-head">
+        <h2 id="sheet-title">状态</h2>
+        <button id="sheet-close" class="chip" type="button">关闭</button>
+      </div>
+      <div id="sheet-body" class="sheet-body"></div>
+    </div>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

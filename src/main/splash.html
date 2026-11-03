@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'" />
+<title>SoulWeave</title>
+<style>
+  /* SoulWeave BOOT-001 启动页
+     规格来源：08_Splash启动页视觉规格.md
+     - 纯文字视觉，不使用 PNG 图标
+     - 深色底 #0E0E12，柔紫 #C9A7FF 光晕
+     - 主标 SoulWeave，母品牌「奇点跃迁 · SINGULIFT」为副标
+     - 总时长约 1.0 秒；不阻塞初始化（由主进程控制显示时机）
+  */
+  :root {
+    --bg: #0E0E12;
+    --glow: #C9A7FF;
+    --word: #F2F2F5;
+    --sub: #8A8A96;
+    --accent: #6EA8FE;
+  }
+  html, body {
+    margin: 0; padding: 0; height: 100%; overflow: hidden;
+    background: var(--bg);
+    user-select: none; cursor: default;
+  }
+  .wrap {
+    height: 100%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 10px;
+    font-family: "Segoe UI", "Microsoft YaHei UI", system-ui, sans-serif;
+  }
+  .glow {
+    position: absolute; width: 420px; height: 420px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,167,255,0.20) 0%, rgba(201,167,255,0.06) 42%, transparent 68%);
+    filter: blur(6px);
+    opacity: 0;
+    animation: glowIn 180ms ease-out forwards;
+    pointer-events: none;
+  }
+  .word {
+    position: relative;
+    font-size: 34px; font-weight: 300; letter-spacing: 0.14em;
+    color: var(--word);
+    opacity: 0; transform: translateY(8px);
+    animation: wordIn 300ms cubic-bezier(.2,.7,.3,1) 120ms forwards;
+  }
+  .sub {
+    position: relative;
+    font-size: 11px; font-weight: 400; letter-spacing: 0.22em;
+    color: var(--sub);
+    opacity: 0;
+    animation: subIn 260ms ease-out 300ms forwards;
+  }
+  .sub em { color: var(--accent); font-style: normal; opacity: .85; }
+  .status {
+    position: absolute; bottom: 26px; left: 0; right: 0;
+    text-align: center; font-size: 11px; letter-spacing: .06em;
+    color: var(--sub); opacity: 0;
+    transition: opacity 200ms ease;
+  }
+  .status.show { opacity: .9; }
+  .status.error { color: #FF8A8A; }
+  .bar {
+    position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+    width: 120px; height: 2px; border-radius: 1px;
+    background: rgba(255,255,255,0.06); overflow: hidden; opacity: 0;
+    transition: opacity 200ms ease;
+  }
+  .bar.show { opacity: 1; }
+  .bar i {
+    display: block; height: 100%; width: 40%;
+    background: linear-gradient(90deg, transparent, var(--glow), transparent);
+    animation: slide 1.1s ease-in-out infinite;
+  }
+  @keyframes glowIn { to { opacity: 1; } }
+  @keyframes wordIn { to { opacity: 1; transform: translateY(0); } }
+  @keyframes subIn { to { opacity: 1; } }
+  @keyframes slide { 0% { transform: translateX(-100%); } 100% { transform: translateX(320%); } }
+
+  /* 减少动画：系统「动画效果」关闭时（prefers-reduced-motion）直接静态呈现 */
+  @media (prefers-reduced-motion: reduce) {
+    .glow, .word, .sub { animation: none; opacity: 1; transform: none; }
+    .bar i { animation: none; }
+  }
+  /* 浅色主题 */
+  body.light { --bg: #F7F7FA; --word: #1A1A1F; --sub: #6B6B78; --glow: #B79BF0; }
+  body.light .glow { background: radial-gradient(circle, rgba(183,155,240,0.22) 0%, rgba(183,155,240,0.07) 42%, transparent 68%); }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="wrap">
+    <div class="word">SoulWeave</div>
+    <div class="sub">奇点跃迁 · <em>SINGULIFT</em></div>
+  </div>
+  <div class="bar" id="bar"><i></i></div>
+  <div class="status" id="status"></div>
+<script>
+  // 主进程通过 executeJavaScript 调用以下两个函数
+  window.__splash = {
+    /**
+     * 显示真实加载状态。
+     * BOOT-003：超过约 1 秒仍未就绪时显示，不使用伪造百分比。
+     */
+    showLoading(text) {
+      const s = document.getElementById('status');
+      const b = document.getElementById('bar');
+      s.textContent = text || '正在加载…';
+      s.classList.remove('error');
+      s.classList.add('show');
+      b.classList.add('show');
+    },
+    /**
+     * 显示错误状态（初始化超时/失败）。
+     */
+    showError(text) {
+      const s = document.getElementById('status');
+      const b = document.getElementById('bar');
+      s.textContent = text || '启动失败，请重试';
+      s.classList.add('show', 'error');
+      b.classList.remove('show');
+    },
+    setTheme(theme) {
+      document.body.classList.toggle('light', theme === 'light');
+    },
+    /** 淡出，供主进程在交叉淡化时调用 */
+    fadeOut(ms) {
+      document.body.style.transition = 'opacity ' + (ms || 220) + 'ms ease';
+      document.body.style.opacity = '0';
+    }
+  };
+  // 预判系统主题（默认深色）
+  try {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+      document.body.classList.add('light');
+    }
+  } catch (e) {}
+</script>
+</body>
+</html>

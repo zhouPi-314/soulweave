@@ -1,0 +1,63 @@
+SoulWeave（奇点跃迁 / Singulift）
+Copyright (c) 2026 SoulWeave contributors
+
+本文件列出随发行版分发的第三方组件与其许可义务。
+第三方许可全文见 THIRD-PARTY-LICENSES.md 与各组件目录内的 LICENSE 文件。
+
+1) 应用代码
+   许可证：Apache License 2.0（2026-11-03 项目方确认）。全文见仓库根 LICENSE。
+
+2) Electron / Chromium / Node.js
+   许可：MIT（Electron）、BSD-3-Clause 等（Chromium）、MIT（Node.js）。
+   义务：随包保留各自 LICENSE 与版权声明（安装包内已包含）。
+
+3) PostgreSQL 18（resources/pg）
+   许可：PostgreSQL License（类 BSD）。
+   义务：保留 COPYRIGHT 与版权声明；不得暗示由 PostgreSQL 全球开发组背书。
+
+4) whisper.cpp / ggml（resources/whisper）
+   许可：MIT。
+   义务：保留版权声明与许可文本。
+
+5) Whisper base 模型（ggml-base.bin）
+   许可：MIT（随 OpenAI Whisper 发布）。
+   义务：保留声明。
+
+6) Stable Diffusion 1.5 权重（可选下载，不随安装包）
+   许可：CreativeML OpenRAIL-M。
+   义务：再分发必须附带该许可副本与 Use Restrictions。
+   本项目履行方式：随包附 SD15-USE-RESTRICTIONS.md（使用限制摘要 + 许可链接）；
+   下载页与「关于」页提供同一入口；权重本身由用户下载，不随安装包分发。
+   完整条款：https://huggingface.co/spaces/CompVis/stable-diffusion-license
+
+7) bge-small-zh 向量模型
+   许可：MIT。
+   义务：保留声明。
+
+8) Live2D Cubism SDK（src/renderer/live2d/cubism-app）
+   许可：Live2D Proprietary Software License Agreement。
+   义务：保留 "Copyright(c) Live2D Inc." 声明；遵守年收入门槛与署名要求；
+         不得单独再分发 SDK；不得用其制作与官方竞争的产品。
+   状态：2026-11-03 项目方确认年收入未超过门槛，cubism-sdk 与 Hiyori 均随包分发。
+
+9) Hiyori 示例模型（public/models/Hiyori）
+   许可：Live2D Free Material License。
+   义务：仅配合 Cubism SDK 使用；保留官方声明；不得单独售卖素材。
+
+10) 界面图标
+    Simple Icons 路径数据：CC0-1.0（无署名义务，仍在此致谢 simpleicons.org）。
+    本项目自绘图标：与主项目同许可。
+
+11) 名称与图标（商标）
+     "SoulWeave"、"奇点跃迁"、"Singulift" 及项目图标用于标识本项目；
+     本许可不授予商标使用权，不得用于暗示背书。
+
+12) 用户数据
+     记忆库、聊天记录、角色配置归用户所有，不随发行版分发。
+
+13) QQ 协议端（NapCat）
+    许可：Limited Redistribution License for NapCat（Copyright © 2024 Mlikiowa）。
+    再分发允许，条件是：随附许可全文与来源/版权声明；仅限非商业用途；修改版不得公开发布。
+    本项目履行方式：安装包内附 third_party/napcat/LICENSE-napcat.txt 全文；
+    来源标注 https://github.com/NapNeko/NapCatQQ ；不改动其代码。
+    ⚠ 若本项目转为商业发行，必须先取得作者书面许可或从安装包中移除 NapCat。

@@ -1,0 +1,65 @@
+# ── 依赖与构建产物 ──
+node_modules/
+cache/
+dist/
+tests-dist/
+*.log
+*.tsbuildinfo
+
+# ── 本机密钥 ──
+.env
+.env.local
+*.key
+*.pem
+
+# ── 运行时数据（不入库）──
+data/
+.tmp/
+.dsh-runtime/
+.runtime-userdata/
+config/*.json
+
+# ── 超大第三方资源（可按 docs/资源还原.md 重新获取）──
+resources/models/
+resources/sdcpp/
+resources/models/**/*.safetensors
+resources/models/**/*.gguf
+resources/models/**/*.ckpt
+
+# ── 系统垃圾 ──
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# 某些脚本误把 %SystemDrive% 当变量名写进路径时留下的垃圾
+%SystemDrive%/
+
+# 设计 / 审查 Skill 的本地安装（由 npx skills add 生成，约 12MB 第三方内容）
+# 只提交 skills-lock.json 记录来源与版本；重新安装：npx skills@latest add <repo>
+.agents/
+.claude/
+agent/
+
+# 打包产物
+release/
+
+# 本机设计过程稿与验收产物
+assets/hero-proposals*/
+assets/icon-proposals*/
+docs/S12-UI-Redesign/
+docs/s1/
+docs/assets/portraits/
+docs/assets/banners/*.html
+design-preview/
+soulweave-s1.png
+soulweave-smoke.json
+
+# ── 随包运行时（体积大，按 scripts/ 拉取，不进仓库）──
+resources/pg/
+resources/napcat/
+resources/whisper/
+!resources/napcat/README.md
+!resources/napcat/.gitkeep
+
+# 本机 npm 配置（缓存路径含个人目录）
+.npmrc

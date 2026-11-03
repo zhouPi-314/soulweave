@@ -1,0 +1,50 @@
+{
+  "name": "soulweave",
+  "version": "0.1.0-s1",
+  "private": true,
+  "description": "SoulWeave — customizable multi-character digital life desktop experience",
+  "main": "dist/main/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/build-assets.mjs && vite build && vite build -c vite.web.config.ts",
+    "build:main": "tsc -p tsconfig.json && node scripts/build-assets.mjs",
+    "build:renderer": "vite build",
+    "test": "npm run build:main && npm run test:structure && npm run test:preload && tsc -p tsconfig.tests.json && node --test tests-dist/gate-j.test.js tests-dist/gate-j-concurrency.test.js tests-dist/character-protection.test.js tests-dist/permission.test.js tests-dist/config.test.js",
+    "dev": "electron .",
+    "smoke": "electron scripts/smoke.mjs",
+    "test:structure": "node scripts/check-structure.mjs --selftest && node scripts/check-structure.mjs",
+    "start": "node scripts/launch.mjs --wait",
+    "start:dev": "node scripts/launch.mjs --dev --wait",
+    "start:rebuild": "node scripts/launch.mjs --rebuild --wait",
+    "test:preload": "node scripts/check-preload.mjs",
+    "build:web": "vite build -c vite.web.config.ts",
+    "check:boot": "node scripts/check-boot-health.mjs",
+    "verify:req": "node scripts/verify-requirements.mjs",
+    "pack": "electron-builder --win nsis --publish never",
+    "pack:dir": "electron-builder --win --dir",
+    "pack:full": "electron-builder --config electron-builder.full.yml --win zip --publish never",
+    "gate:site": "node scripts/publish-gate.mjs site",
+    "gate:site:abs": "node scripts/publish-gate.mjs D:/SoulWeave/01_project/soulweave/site",
+    "license:audit": "node scripts/license-audit.mjs",
+    "license:gate": "node scripts/license-gate.mjs --report"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/pg": "^8.23.1",
+    "@types/ws": "^8.18.2",
+    "electron": "^45.0.0",
+    "electron-builder": "^26.18.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.4.5"
+  },
+  "type": "module",
+  "dependencies": {
+    "electron-updater": "^6.8.11",
+    "koffi": "^3.3.5",
+    "onnxruntime-node": "^1.31.1",
+    "pg": "^8.23.1",
+    "ws": "^8.22.0"
+  },
+  "author": {
+    "name": "Singulift 奇点跃迁"
+  }
+}

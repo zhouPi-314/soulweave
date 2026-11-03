@@ -1,0 +1,104 @@
+{
+  "at": "2026-11-03T03:14:21.509Z",
+  "results": [
+    {
+      "id": "code-app",
+      "name": "SoulWeave 应用代码",
+      "license": "Apache-2.0",
+      "status": "ok",
+      "reason": "许可允许再分发"
+    },
+    {
+      "id": "deps-npm",
+      "name": "npm 依赖（402 个，69 个随包）",
+      "license": "见 THIRD-PARTY-LICENSES.md",
+      "status": "ok",
+      "reason": "许可允许再分发"
+    },
+    {
+      "id": "postgres",
+      "name": "PostgreSQL 18（内置数据库）",
+      "license": "PostgreSQL License（类 BSD）",
+      "status": "ok",
+      "reason": "许可允许再分发"
+    },
+    {
+      "id": "whisper",
+      "name": "whisper.cpp / ggml（语音识别引擎）",
+      "license": "MIT",
+      "status": "ok",
+      "reason": "许可允许再分发"
+    },
+    {
+      "id": "whisper-model",
+      "name": "Whisper base 模型 ggml-base.bin",
+      "license": "MIT",
+      "status": "ok",
+      "reason": "许可允许再分发"
+    },
+    {
+      "id": "sd15",
+      "name": "Stable Diffusion 1.5 权重（sd15-pruned-emaonly）",
+      "license": "CreativeML OpenRAIL-M",
+      "status": "approved",
+      "reason": "已由 用户（对话确认） 于 2026-11-03T10:20:00+08:00 批准"
+    },
+    {
+      "id": "bge",
+      "name": "bge-small-zh 向量模型",
+      "license": "MIT",
+      "status": "ok",
+      "reason": "许可允许再分发"
+    },
+    {
+      "id": "cubism-sdk",
+      "name": "Live2D Cubism SDK（Core / Framework）",
+      "license": "Live2D Proprietary Software License",
+      "status": "approved",
+      "reason": "已由 用户（对话确认） 于 2026-11-03T10:20:00+08:00 批准"
+    },
+    {
+      "id": "hiyori",
+      "name": "Hiyori 示例模型（public/models/Hiyori）",
+      "license": "Live2D Free Material License",
+      "status": "approved",
+      "reason": "已由 用户（对话确认） 于 2026-11-03T10:20:00+08:00 批准"
+    },
+    {
+      "id": "icons-ui",
+      "name": "界面图标（Simple Icons 路径 + 手绘兜底）",
+      "license": "CC0-1.0 / 自研",
+      "status": "ok",
+      "reason": "许可允许再分发"
+    },
+    {
+      "id": "brand-icon",
+      "name": "SoulWeave 应用图标 / 托盘图标",
+      "license": "PENDING（与主项目同）",
+      "status": "approved",
+      "reason": "已由 用户（对话确认） 于 2026-11-03T10:20:00+08:00 批准"
+    },
+    {
+      "id": "voice",
+      "name": "语音音色 / TTS 组件",
+      "license": "按来源定（系统 TTS / 第三方模型 / 真人录音）",
+      "status": "approved",
+      "reason": "已由 用户（对话确认） 于 2026-11-03T10:20:00+08:00 批准"
+    },
+    {
+      "id": "user-data",
+      "name": "用户数据（记忆库、聊天记录、角色配置）",
+      "license": "归用户所有",
+      "status": "ok",
+      "reason": "不随发行版分发"
+    },
+    {
+      "id": "napcat",
+      "name": "NapCat QQ 协议端（计划内置随包分发）",
+      "license": "Limited Redistribution License for NapCat（Copyright © 2024 Mlikiowa）",
+      "status": "approved",
+      "reason": "已由 用户（对话确认）+ 许可原文核对 于 2026-11-03T11:20:00+08:00 批准"
+    }
+  ],
+  "blockers": 0
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:;">
+  <title>SoulWeave</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- S3-11：语音组件首次使用引导页 -->
+  <div id="voice-onboard" hidden role="dialog" aria-modal="true" aria-labelledby="voice-onboard-title">
+    <div id="voice-onboard-card">
+      <div id="voice-onboard-head">
+        <span id="voice-onboard-title">语音组件设置</span>
+        <button type="button" id="voice-onboard-close" aria-label="关闭">×</button>
+      </div>
+      <div id="voice-onboard-body"></div>
+    </div>
+  </div>
+
+  <!-- S2-26：轻提示（首次启动的托盘引导等） -->
+  <div id="toast" hidden role="status" aria-live="polite">
+    <div id="toast-title"></div>
+    <div id="toast-body"></div>
+    <button type="button" id="toast-close" aria-label="关闭提示">知道了</button>
+  </div>
+
+  <!-- S2-23：自绘标题栏（仅完整窗口；桌宠模式隐藏） -->
+  <header id="titlebar">
+    <div class="tb-brand">
+      <span class="tb-dot" aria-hidden="true"></span>
+      <span class="tb-name">SoulWeave</span>
+      <span class="tb-sub">奇点跃迁 · SINGULIFT</span>
+    </div>
+    <nav class="tb-actions">
+      <button type="button" id="tb-min" title="最小化" aria-label="最小化">&#xE921;</button>
+      <button type="button" id="tb-max" title="最大化" aria-label="最大化">&#xE922;</button>
+      <button type="button" id="tb-close" title="关闭" aria-label="关闭">&#xE8BB;</button>
+    </nav>
+  </header>
+
+  <!-- S2-13：可自定义窗口背景（透明 / 纯色 / 图片）。桌宠模式强制透明。 -->
+  <div id="bg-layer" aria-hidden="true"></div>
+
+  <div id="stage">
+    <canvas id="live2d-canvas"></canvas>
+    <div id="hud">
+      <div id="status">初始化中…</div>
+      <div id="fps">— FPS</div>
+    </div>
+
+    <!-- SoulWeave S2-9：对话框（流式渲染）-->
+    <div id="dialog" class="hidden">
+      <div id="dialog-head">
+        <div id="dialog-tabs" role="tablist" aria-label="聊天方式">
+          <button type="button" class="dlg-tab active" data-mode="text" role="tab" aria-selected="true">文字</button>
+          <button type="button" class="dlg-tab" data-mode="voice" role="tab" aria-selected="false">语音</button>
+        </div>
+        <span id="dialog-badge" title="这一层只验证流式渲染机制，未接入真实模型">本地模拟</span>
+      <button type="button" id="dialog-close" title="关闭对话" aria-label="关闭对话">×</button>
+      </div>
+      <div id="dialog-body">
+      <div id="dialog-messages"></div>
+      <div id="dialog-text" hidden></div>
+      <span id="dialog-caret">▍</span>
+    </div>
+      <div id="dialog-input-row">
+      <input type="text" id="dialog-input" placeholder="对冰糖说点什么…" autocomplete="off" />
+      <button type="button" id="dialog-send">发送</button>
+    </div>
+    <div id="dialog-foot">
+      <span id="dialog-backend">—</span>
+      <span id="dialog-tokens">token —</span>
+    </div>
+    <div id="voice-panel" hidden>
+        <div id="voice-studio"></div>
+        <div class="voice-row">
+          <button type="button" id="voice-btn" aria-pressed="false">按住说话</button>
+          <button type="button" id="voice-onboard-open">设置向导</button>
+          <button type="button" id="voice-speak-demo">朗读示例</button>
+          <button type="button" id="voice-stop">停止</button>
+          <span id="voice-hint">按住说话：松手后自动识别并发送（本地 whisper）。</span>
+        </div>
+        <div class="voice-meter"><i id="voice-level"></i></div>
+      </div>
+    </div>
+
+    <!-- SoulWeave S2-9：动作表情面板 -->
+    <aside id="panel">
+    <!-- 独立入口：不折叠，始终可见 -->
+    <button id="open-chat" type="button" title="和角色聊天（也可双击角色）">
+      <span class="panel-ic" aria-hidden="true">💬</span>
+      <span>聊天</span>
+    </button>
+    <button type="button" id="open-settings-center" class="set-open-btn">
+      <span class="so-ic" aria-hidden="true">⚙</span>
+      <span>设置中心</span>
+      <span class="so-sub">十二模块</span>
+    </button>
+
+    <!-- 动作与表情：可折叠 -->
+    <button id="panel-toggle" type="button" aria-expanded="false" aria-controls="panel-body">
+      <span class="panel-ic" aria-hidden="true">◈</span>
+      <span>动作 / 表情</span>
+    </button>
+    <div id="panel-body" hidden>
+      <div id="panel-content" class="empty">加载模型后可操作</div>
+    </div>
+  </aside>
+  </div>
+  <script type="module" src="./live2d/boot.js"></script>
+  <script type="module" src="./pet-mode.js"></script>
+  <script type="module" src="./panel.js"></script>
+</body>
+</html>

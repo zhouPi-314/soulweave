@@ -1,0 +1,135 @@
+{
+  "generatedAt": "2026-11-02T15:03:52.251Z",
+  "note": "每条都有\"谁授权、能不能随包分发、有没有书面确认\"三列；未确认的一律按\"不可分发\"处理（D59.07）。",
+  "items": [
+    {
+      "id": "code-app",
+      "name": "SoulWeave 应用代码",
+      "kind": "code",
+      "source": "自研",
+      "license": "Apache-2.0",
+      "redistributable": "yes",
+      "requiresUserApproval": true,
+      "evidence": "用户 2026-11-03 选定 Apache-2.0；LICENSE 文件已写入仓库根（官方 apache.org 原文，11324 字节）"
+    },
+    {
+      "id": "deps-npm",
+      "name": "npm 依赖（402 个，69 个随包）",
+      "kind": "dependency",
+      "source": "npm 公开仓库",
+      "license": "见 THIRD-PARTY-LICENSES.md",
+      "redistributable": "yes",
+      "evidence": "npm run license:audit 生成 SBOM；无 copyleft 阻塞项"
+    },
+    {
+      "id": "postgres",
+      "name": "PostgreSQL 18（内置数据库）",
+      "kind": "binary",
+      "source": "postgresql.org",
+      "license": "PostgreSQL License（类 BSD）",
+      "redistributable": "yes",
+      "evidence": "resources/pg 内附 COPYRIGHT；需随包保留"
+    },
+    {
+      "id": "whisper",
+      "name": "whisper.cpp / ggml（语音识别引擎）",
+      "kind": "binary",
+      "source": "ggml-org/whisper.cpp",
+      "license": "MIT",
+      "redistributable": "yes",
+      "evidence": "resources/whisper 内附 LICENSE；需保留版权声明"
+    },
+    {
+      "id": "whisper-model",
+      "name": "Whisper base 模型 ggml-base.bin",
+      "kind": "model",
+      "source": "OpenAI Whisper → ggml 转换",
+      "license": "MIT",
+      "redistributable": "yes",
+      "evidence": "模型权重随 OpenAI Whisper 以 MIT 发布"
+    },
+    {
+      "id": "sd15",
+      "name": "Stable Diffusion 1.5 权重（sd15-pruned-emaonly）",
+      "kind": "model",
+      "source": "runwayml/stable-diffusion-v1-5",
+      "license": "CreativeML OpenRAIL-M",
+      "redistributable": "conditional",
+      "evidence": "OpenRAIL-M；已补 Use Restrictions 摘要 docs/licensing/ORail-Use-Restrictions.md，随包附许可全文与下载页/关于页入口"
+    },
+    {
+      "id": "bge",
+      "name": "bge-small-zh 向量模型",
+      "kind": "model",
+      "source": "BAAI/bge-small-zh",
+      "license": "MIT",
+      "redistributable": "yes",
+      "evidence": "HuggingFace 仓库标注 MIT；随包附声明"
+    },
+    {
+      "id": "cubism-sdk",
+      "name": "Live2D Cubism SDK（Core / Framework）",
+      "kind": "sdk",
+      "source": "Live2D Inc.（经 AIRI 同栈实现）",
+      "license": "Live2D Proprietary Software License",
+      "redistributable": "conditional",
+      "evidence": "src/renderer/live2d/cubism-app/*.ts 头部保留 \"Copyright(c) Live2D Inc.\"；再分发需遵守 Live2D 许可（年收入门槛、署名、不得单独再分发 SDK）"
+    },
+    {
+      "id": "hiyori",
+      "name": "Hiyori 示例模型（public/models/Hiyori）",
+      "kind": "art",
+      "source": "Live2D 官方示例",
+      "license": "Live2D Free Material License",
+      "redistributable": "conditional",
+      "evidence": "仅限配合 Cubism SDK 使用；需保留官方声明，不得单独售卖素材"
+    },
+    {
+      "id": "icons-ui",
+      "name": "界面图标（Simple Icons 路径 + 手绘兜底）",
+      "kind": "art",
+      "source": "simpleicons.org（CC0）+ 本项目绘制",
+      "license": "CC0-1.0 / 自研",
+      "redistributable": "yes",
+      "evidence": "src/renderer/icons.js 内为 SVG path 数据；Simple Icons 以 CC0 发布"
+    },
+    {
+      "id": "brand-icon",
+      "name": "SoulWeave 应用图标 / 托盘图标",
+      "kind": "art",
+      "source": "本项目绘制",
+      "license": "PENDING（与主项目同）",
+      "redistributable": "pending",
+      "requiresUserApproval": true,
+      "evidence": "D59.08：需确认图标为原创、无第三方 IP；多尺寸见 04-图标审计.md"
+    },
+    {
+      "id": "voice",
+      "name": "语音音色 / TTS 组件",
+      "kind": "voice",
+      "source": "需确认（本地 TTS 音色来源）",
+      "license": "按来源定（系统 TTS / 第三方模型 / 真人录音）",
+      "redistributable": "pending",
+      "evidence": "用户 2026-11-03 确认音色来源无问题并放行；仍要求在发布时逐项登记实际使用的音色来源"
+    },
+    {
+      "id": "user-data",
+      "name": "用户数据（记忆库、聊天记录、角色配置）",
+      "kind": "data",
+      "source": "用户本机产生",
+      "license": "归用户所有",
+      "redistributable": "no",
+      "evidence": "不随包分发；卸载默认保留（D59.06）"
+    },
+    {
+      "id": "napcat",
+      "name": "NapCat QQ 协议端（计划内置随包分发）",
+      "kind": "binary",
+      "source": "NapNeko/NapCatQQ",
+      "license": "Limited Redistribution License for NapCat（Copyright © 2024 Mlikiowa）",
+      "redistributable": "conditional",
+      "requiresUserApproval": true,
+      "evidence": "原文已核（2026-11-03）：允许再分发，但须附许可全文+来源与版权声明；仅限非商业用途；修改版不得公开发布。全文见 third_party/napcat/LICENSE-napcat.txt"
+    }
+  ]
+}
