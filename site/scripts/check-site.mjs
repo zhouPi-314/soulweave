@@ -73,7 +73,7 @@ for (const file of htmlFiles) {
 
 const index = await readFile(path.join(root, 'index.html'), 'utf8');
 requireText(path.join(root, 'index.html'), index, [
-  ['hero must use the single brand banner', /assets\/brand\/soulweave-hero\.webp/],
+  ['hero must use the single brand banner', /assets\/brand\/soulweave-hero-20261104\.webp/],
   ['hero must explain Windows digital life', /Windows 数字生命桌面软件/],
   ['multi-character positioning missing', /多角色数字生命体验/],
   ['product screenshots section missing', /id="inside"/],

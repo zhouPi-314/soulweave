@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/banners/soulweave-github-hero.png" alt="SoulWeave 多角色数字生命体验" width="100%">
+  <img src="docs/assets/banners/soulweave-github-hero-20261104.png" alt="SoulWeave 多角色数字生命体验" width="100%">
 </p>
 
 <h1 align="center">SoulWeave</h1>
